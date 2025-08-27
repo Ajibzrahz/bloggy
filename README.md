@@ -16,7 +16,7 @@ A backend application for a blogging platform where users can write, edit, and d
 
 ## 🏗️ Project Structure
 ```bash
-blogify-api/
+bloggy-api/
 │── controllers/      # Handles request logic
 │── models/           # Mongoose schemas (User, Post, Comment, Category)
 │── routes/           # API routes
@@ -26,3 +26,4 @@ blogify-api/
 │── .env              # Environment variables
 │── server.js         # Entry point
 │── README.md         # Documentation
+
