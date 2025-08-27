@@ -18,12 +18,13 @@ A backend application for a blogging platform where users can write, edit, and d
 ```bash
 bloggy-api/
 │── controllers/      # Handles request logic
-│── models/           # Mongoose schemas (User, Post, Comment, Category)
+│── models/           # Mongoose schemas (User, Post, Comment, report)
 │── routes/           # API routes
 │── middlewares/      # Authentication & error handling
-│── utils/            # Helpers (mailer, token, etc.)
+│── utils/            # Helpers (mailer etc.)
 │── errors/           # Custom error classes
 │── .env              # Environment variables
-│── server.js         # Entry point
+│── index.js         # Entry point
 │── README.md         # Documentation
+
 
