@@ -9,6 +9,7 @@ import {
   allUsers,
   follow,
   unfollow,
+  logout,
 } from "../controllers/user-controller.js";
 import { deleteUser } from "../controllers/admin-controller.js";
 import validateRequest from "../middlewares/validator.js";
@@ -26,6 +27,7 @@ userRouter
   .route("/register")
   .post(profilePicture, validateRequest(registerValidation), register);
 userRouter.route("/login").post(validateRequest(loginValidation), login);
+userRouter.route("/logout").get(logout);
 userRouter.route("/").get(Authentication, allUsers);
 userRouter
   .route("/profile")

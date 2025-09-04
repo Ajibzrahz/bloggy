@@ -33,11 +33,14 @@ const register = async (req, res, next) => {
       result = uploading.secure_url;
       await fs.unlink(image);
     }
+    const isFirstAccount = (await userModel.countDocuments({})) === 0;
+    const role = isFirstAccount ? "admin" : "user";
 
     const newUser = new userModel({
       ...payload,
       profilePics: result,
       email: payload.email.toLowerCase(),
+      role: role,
     });
     const saveUser = await newUser.save();
 
@@ -89,6 +92,16 @@ const login = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+};
+
+const logout = async (req, res) => {
+  res
+    .cookie("userToken", "logout", {
+      expires: new Date(Date.now()),
+      httpOnly: true,
+    })
+    .status(StatusCodes.ACCEPTED)
+    .json({ msg: "user logged out" });
 };
 
 //Logged in user updating profile
@@ -303,4 +316,5 @@ export {
   allUsers,
   follow,
   unfollow,
+  logout
 };
